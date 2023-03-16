@@ -11,6 +11,8 @@ use serenity::model::channel::Message;
 use serenity::model::gateway::Ready;
 use serenity::prelude::*;
 
+use crate::commands::happy_birthday::*;
+use crate::commands::maher::*;
 use crate::commands::stock::*;
 
 const HELP_MESSAGE: &str = "
@@ -23,7 +25,7 @@ const HELP_MESSAGE: &str = "
 const HELP_COMMAND: &str = "!help";
 
 #[group]
-#[commands(stock)]
+#[commands(stock, maher, happy_birthday)]
 struct General;
 struct Handler;
 
