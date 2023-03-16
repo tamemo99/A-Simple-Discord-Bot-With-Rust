@@ -1,8 +1,8 @@
 mod commands;
 
 use colored::Colorize;
-use serenity::framework::standard::macros::{command, group};
-use serenity::framework::standard::{CommandResult, StandardFramework};
+use serenity::framework::standard::macros::group;
+use serenity::framework::standard::StandardFramework;
 use std::env;
 use tracing::info;
 
@@ -11,7 +11,7 @@ use serenity::model::channel::Message;
 use serenity::model::gateway::Ready;
 use serenity::prelude::*;
 
-use crate::commands::test::*;
+use crate::commands::stock::*;
 
 const HELP_MESSAGE: &str = "
     Bot Supports following commands:
