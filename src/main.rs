@@ -11,7 +11,10 @@ use serenity::model::channel::Message;
 use serenity::model::gateway::Ready;
 use serenity::prelude::*;
 
-use crate::commands::test::*;
+use crate::commands::stock::*;
+use crate::commands::maher::*;
+use crate::commands::happy_birthday::*;
+use crate::commands::christos::*;
 
 const HELP_MESSAGE: &str = "
     Bot Supports following commands:
@@ -23,7 +26,7 @@ const HELP_MESSAGE: &str = "
 const HELP_COMMAND: &str = "!help";
 
 #[group]
-#[commands(stock)]
+#[commands(stock,maher, happy_birthday,christos)]
 struct General;
 struct Handler;
 
@@ -44,13 +47,15 @@ impl EventHandler for Handler {
 
 #[tokio::main]
 async fn main() {
+    //Use the token of the bot
     let token = env::var("DISCORD_TOKEN").expect("Expted a token in the environment");
 
     let framework = StandardFramework::new()
         .configure(|c| c.prefix("!"))
         .group(&GENERAL_GROUP);
 
-    let intents = GatewayIntents::GUILD_MESSAGES
+
+    let intents = GatewayIntents::GUILD_MESSAGES //enables bot to send messages
         | GatewayIntents::DIRECT_MESSAGES
         | GatewayIntents::MESSAGE_CONTENT;
 
